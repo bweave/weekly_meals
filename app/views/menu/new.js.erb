@@ -1,0 +1,3 @@
+document.querySelector("tbody#menu").innerHTML = `<% @meals.each_with_index do |meal, i| %>
+  <%= render partial: "table_row", locals: { meal: meal, i: i } %>
+<% end %>`

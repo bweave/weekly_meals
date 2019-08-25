@@ -1,0 +1,5 @@
+<%= content_tag :tr, id: dom_id(meal), class: dom_class(meal) do %>
+  <td><%= Date::DAYNAMES[i] %></td>
+  <%= render partial: "meals/table_row", locals: { meal: meal } %>
+<% end %>
+

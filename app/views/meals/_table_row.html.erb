@@ -1,0 +1,4 @@
+<td><%= image_tag meal.header_image.variant(resize_to_limit: [48, 48]) if meal.header_image.attached? %></td>
+<td><%= link_to meal.name, meal %></td>
+<td><%= meal.description.to_plain_text.truncate(100) %></td>
+

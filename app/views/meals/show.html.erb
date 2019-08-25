@@ -1,0 +1,23 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div class="page-header">
+      <h1><%= @meal.name %></h1>
+      <div>
+        <%= link_to meals_path, class: 'btn btn-primary' do %>
+          <%= icon("fas", "chevron-circle-left") %>
+        <% end %>
+        <%= link_to edit_meal_path(@meal), class: 'btn btn-success' do %>
+          <%= icon("fas", "edit") %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="header-image">
+      <%= image_tag @meal.header_image.variant(resize_to_limit: [200, 200]) if @meal.header_image.attached? %>
+    </div>
+
+    <div class="meal-description">
+      <%= @meal.description %>
+    </div>
+  </div>
+</div>

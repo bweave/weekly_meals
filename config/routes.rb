@@ -1,6 +1,8 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  get "/menu", to: "menu#new"
+  resources :meals
   namespace :admin do
     resources :users
     resources :announcements

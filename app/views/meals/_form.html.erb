@@ -1,0 +1,47 @@
+<%= form_with(model: meal, local: true) do |form| %>
+  <% if meal.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(meal.errors.count, "error") %> prohibited this meal from being saved:</h2>
+
+      <ul>
+      <% meal.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: 'form-control', autofocus: true %>
+  </div>
+
+  <div class="form-group">
+    <div class="custom-file">
+      <%= form.file_field :header_image, class: 'custom-file-input' %>
+      <%= form.label :header_image, 'Choose file', class: 'custom-file-label' %>
+    </div>
+  </div>
+
+
+  <div class="form-group">
+    <%= form.label :description %>
+    <%= form.rich_text_area :description, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <% if meal.persisted? %>
+      <div class="float-right">
+        <%= link_to 'Destroy', meal, method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' } %>
+      </div>
+    <% end %>
+
+    <%= form.submit class: 'btn btn-primary' %>
+
+    <% if meal.persisted? %>
+      <%= link_to "Cancel", meal, class: "btn btn-link" %>
+    <% else %>
+      <%= link_to "Cancel", meals_path, class: "btn btn-link" %>
+    <% end %>
+  </div>
+<% end %>
