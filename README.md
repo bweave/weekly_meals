@@ -6,3 +6,8 @@ WeeklyMeals is a simple Rails app that give you a rando list of meals to make fo
 - Postgres
 - Redis
 - Sidekiq
+
+## TODO
+
+- save meals for a given week
+- add households
