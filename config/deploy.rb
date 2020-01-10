@@ -18,3 +18,14 @@ set :keep_releases, 3
 # Optionally, you can symlink your database.yml and/or secrets.yml file from the shared directory during deploy
 # This is useful if you don't want to use ENV variables
 # append :linked_files, 'config/database.yml', 'config/secrets.yml'
+
+namespace :deploy do
+  desc 'Reload Sidekiq'
+  task :reload_sidekiq do
+    on roles(:app) do
+      execute "sudo service sidekiq reload"
+    end
+  end
+end
+
+after 'deploy:publishing', 'deploy:reload_sidekiq'
