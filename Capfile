@@ -40,6 +40,7 @@ require 'capistrano/rbenv'
 
 set :rbenv_type, :user
 set :rbenv_ruby, '2.7.0'
+set :passenger_restart_with_touch, true
 
 # Load custom tasks from `lib/capistrano/tasks` if you have any defined
 Dir.glob("lib/capistrano/tasks/*.rake").each { |r| import r }
